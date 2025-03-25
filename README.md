@@ -18,7 +18,7 @@ This project focuses on detecting and segmenting face masks in images. The prima
 ## 📂 Dataset
 
 - **Source**: The dataset was sourced from the following repositories:
-  - [Face Mask Detection Dataset](https://github.com/chandrikadeb7/Face-MaskDetection/tree/master/dataset)
+  - [Face Mask Detection Dataset](https://github.com/chandrikadeb7/Face-Mask-Detection/tree/master/dataset)
   - [Masked Face Segmentation Dataset](https://github.com/sadjadrz/MFSD)
 - **Structure**:
   - **Image Classification**:
