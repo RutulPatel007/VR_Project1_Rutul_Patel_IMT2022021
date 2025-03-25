@@ -1,0 +1,2 @@
+Mean IoU (edge): 0.1087
+Mean Dice Score (edge): 0.1891

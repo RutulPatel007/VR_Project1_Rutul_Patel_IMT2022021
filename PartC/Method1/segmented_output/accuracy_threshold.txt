@@ -1,0 +1,2 @@
+Mean IoU (threshold): 0.8356
+Mean Dice Score (threshold): 0.8944
