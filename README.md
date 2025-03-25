@@ -198,7 +198,7 @@ Note - We only uploaded the classification dataset to github repo and not segmen
 - Running in Google Colab is preferred for Jupyter Notebook execution.
 - Clone the repo and go to the root folder of repo
 - Download the MSFD Dataset in the root directory.
-- change the dataset locations accordingly in the code, we used colab so uploaded in drive for classification
+- Change the dataset locations accordingly in the code, we used colab so uploaded in drive for classification
 
 ### 1. Environment Setup
 - Python 3.8+
