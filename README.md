@@ -31,7 +31,7 @@ This project focuses on detecting and segmenting face masks in images. The prima
     - Two folders: `face_crop` containing cropped face images and `face_crop_segmentation` containing corresponding segmentation masks.
     - face_crop/: Contains cropped face images.
     - face_crop_segmentation/: Contains the segmented masks of cropped face images.
-    - Image sizes standardized to 256x256.
+    - Image sizes standardized to 128x128.
 
 Note - We only uploaded the classification dataset to github repo and not segmentation dataset since it was very large and we used gdown library in colab to download
 
