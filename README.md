@@ -242,9 +242,10 @@ This project focuses on detecting and segmenting face masks in images. The prima
 ├── requirements.txt              # Dependencies
 ├── README.md                     # Project report
 ├── data/
-│   ├── with_mask/
-│   ├── without_mask/
-│   └── masks/
+│   ├── Face_Mask_Detection/      # Dataset folder
+│   │   ├── with_mask/            # Images of people wearing masks
+│   │   ├── without_mask/         # Images of people without masks
+│   ├── masks/                    # Segmentation masks (if applicable)
 ```
 
 ---
