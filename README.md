@@ -262,6 +262,8 @@ Note - We only uploaded the classification dataset to github repo and not segmen
 │   │   ├── Preprocess.py/        # Script for making same file names 
 │   │   ├── result.py/            # Genrate the output and accuracy
 ├── PART D/                       # U-NET Codes
+|   |--U-Net.ipynb                # Notebook
+|   |--unet_best.h5               # BEST MODEL
 ```
 
 ---
