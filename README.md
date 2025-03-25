@@ -63,7 +63,7 @@ Note - We only uploaded the classification dataset to github repo and not segmen
   - Epochs: 50
 
 ### c. Region Segmentation Using Traditional Techniques
-
+- All the visualisation/Output are available at https://github.com/BiradarScripts/VR_VISUALISATION
 - **Method1**:
   - Applied both Thresholding and edge detection techniques,used Dataset.csv as Ground truth values
 - **Method2**:
