@@ -221,10 +221,21 @@ Note - We only uploaded the classification dataset to github repo and not segmen
     ```
 
 #### (b) Traditional Segmentation (PART C)
-- Run edge detection and thresholding:
+- Run edge detection and thresholding Method1:
   - Python script:
     ```bash
-    python traditional_segmentation.py
+    cd PartC
+    cd Method1
+    python Preprocess.py
+    python result.py
+    ```
+- Run edge detection and thresholding Method2:
+  - Python script:
+    ```bash
+    cd PartC
+    cd Method2
+    python Preprocess.py
+    python result.py
     ```
 
 
