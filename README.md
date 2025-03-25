@@ -210,7 +210,7 @@ Note - We only uploaded the classification dataset to github repo and not segmen
 ### 2. Steps to Run
 #### (a) Handcrafted Features + CNN Model (Part A & B)
 - This step includes both feature extraction, ML classifiers, and CNN model training.
-- Mode to PartA&B folder
+- Move to PartA&B folder
 - Run using:
   - Python script:
     ```bash
@@ -275,6 +275,7 @@ Note - We only uploaded the classification dataset to github repo and not segmen
 │   │   ├── result.py/            # Genrate the output and accuracy
 ├── PART D/                       # U-NET Codes
 |   |--U-Net.ipynb                # Notebook
+|   |--U-net.py               # .py 
 |   |--unet_best.h5               # BEST MODEL
 ```
 
