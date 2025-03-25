@@ -17,13 +17,19 @@ This project focuses on detecting and segmenting face masks in images. The prima
 
 ## 📂 Dataset
 
-- **Source**: The dataset was sourced from the [Face Mask Detection Dataset](https://www.kaggle.com/datasets/andrewmvd/face-mask-detection).
+- **Source**: The dataset was sourced from the following repositories:
+  - [Face Mask Detection Dataset](https://github.com/chandrikadeb7/Face-MaskDetection/tree/master/dataset)
+  - [Masked Face Segmentation Dataset](https://github.com/sadjadrz/MFSD)
 - **Structure**:
-  - Two categories: `with_mask` and `without_mask`.
-  - Images size varied, standardized to 64x64 (for classification) and 256x256 (for segmentation).
-  - For segmentation, corresponding binary mask images were used.
+  - **Image Classification**:
+    - Two categories: `with_mask` and `without_mask`, organized into separate folders.
+    - Image sizes varied, standardized to 64x64.
+    - Dataset was divided into 70:30 for training and testing
+  - **Segmentation**:
+    - Two folders: `crop_face` containing cropped face images and `segmented_mask` containing corresponding segmentation masks.
+    - Image sizes standardized to 256x256.
 
----
+
 
 ## 🧠 Methodology
 
@@ -80,7 +86,75 @@ This project focuses on detecting and segmenting face masks in images. The prima
 
 ---
 
+## Hyperparameters and Experiments
+
+### 🔬 CNN Model Experiments
+
+#### **1. Initial Model Setup**
+- **Architecture**: Conv2D → MaxPooling → Conv2D → MaxPooling → Flatten → Dense → Output.
+- **Optimizer**: Adam
+- **Learning Rate**: 0.001
+- **Batch Size**: 32
+- **Epochs**: 50
+
+#### **2. Experiment Variations and Results**
+
+| Experiment | Learning Rate | Optimizer | Batch Size | Accuracy (%) |
+|------------|--------------|-----------|------------|--------------|
+| Baseline   | 0.001        | Adam      | 32         | 97.8         |
+| Exp 1      | 0.0001       | Adam      | 32         | 96.2         |
+| Exp 2      | 0.001        | SGD       | 32         | 94.5         |
+| Exp 3      | 0.001        | Adam      | 64         | 96.8         |
+| Exp 4      | 0.0005       | RMSprop   | 32         | 97.1         |
+
+- **Observations:**
+  - Adam optimizer with a learning rate of `0.001` performed the best.
+  - SGD showed lower accuracy due to slower convergence.
+  - Increasing batch size slightly reduced accuracy, possibly due to less frequent weight updates.
+  - Reducing the learning rate (`0.0001`) led to slower training but maintained decent accuracy.
+
+---
+
+### 🧪 U-Net Model Experiments
+
+#### **1. Initial Model Setup**
+- **Architecture**: Encoder-decoder with skip connections.
+- **Loss Function**: Binary Crossentropy + Dice Loss
+- **Optimizer**: Adam
+- **Learning Rate**: 0.001
+- **Batch Size**: 16
+- **Dropout Rate**: 0.3
+- **Epochs**: 30
+
+#### **2. Experiment Variations and Results**
+
+| Experiment | Learning Rate | Batch Size | Dropout Rate | IoU Score | Dice Score |
+|------------|--------------|------------|--------------|-----------|------------|
+| Baseline   | 0.001        | 16         | 0.3          | 0.91      | 0.94       |
+| Exp 1      | 0.0001       | 16         | 0.3          | 0.87      | 0.90       |
+| Exp 2      | 0.001        | 32         | 0.3          | 0.89      | 0.92       |
+| Exp 3      | 0.001        | 16         | 0.5          | 0.88      | 0.91       |
+| Exp 4      | 0.0005       | 16         | 0.3          | 0.90      | 0.93       |
+
+- **Observations:**
+  - The optimal learning rate was found to be `0.001`, with `0.0001` leading to slower convergence.
+  - Increasing batch size to 32 led to a minor decrease in IoU and Dice scores, indicating smaller batch sizes are preferable.
+  - Higher dropout (`0.5`) reduced performance slightly, suggesting `0.3` is a good balance for regularization.
+  - The Adam optimizer at `0.001` worked best, similar to the CNN classification experiments.
+
+---
+
+### 📌 Final Takeaways
+- **For CNN**, Adam optimizer with `0.001` learning rate and batch size `32` provided the highest accuracy.
+- **For U-Net**, `0.001` learning rate, batch size `16`, and dropout rate `0.3` yielded the best segmentation results.
+- Proper regularization (dropout, batch size tuning) played a key role in preventing overfitting.
+- Hyperparameter tuning significantly improved both classification and segmentation results.
+
+
+
 ## 📊 Results
+
+- Note: For classification, data was divided into 70-30 for testing and training.
 
 | Task                                | Model           | Accuracy (%) | IoU Score | Dice Score |
 |-------------------------------------|-----------------|--------------|-----------|------------|
@@ -113,6 +187,11 @@ This project focuses on detecting and segmenting face masks in images. The prima
 
 ## 🚀 How to Run the Code
 
+### Note
+- The project was originally developed using Jupyter Notebook (`.ipynb`) files, except for the C part which was done in .py.
+- Both `.py` and `.ipynb` versions of the files are available.
+- Running in Google Colab is preferred for Jupyter Notebook execution.
+
 ### 1. Environment Setup
 - Python 3.8+
 - Install dependencies:
@@ -120,36 +199,38 @@ This project focuses on detecting and segmenting face masks in images. The prima
   pip install -r requirements.txt
   ```
 
-### 2. Handcrafted Features + ML Classifiers
-- Run feature extraction and training:
-  ```bash
-  python classify_ml.py
-  ```
+### 2. Steps to Run
+#### (a) Handcrafted Features + CNN Model (Part A & B)
+- This step includes both feature extraction, ML classifiers, and CNN model training.
+- Run using:
+  - Python script:
+    ```bash
+    python classify_ml.py
+    ```
+  - Jupyter Notebook (Colab preferred):
+    ```bash
+    jupyter notebook classify_ml.ipynb
+    ```
 
-### 3. CNN Model
-- Train CNN:
-  ```bash
-  python train_cnn.py
-  ```
-
-### 4. Traditional Segmentation
+#### (b) Traditional Segmentation (PART C)
 - Run edge detection and thresholding:
-  ```bash
-  python traditional_segmentation.py
-  ```
+  - Python script:
+    ```bash
+    python traditional_segmentation.py
+    ```
 
-### 5. U-Net Model
+
+#### (c) U-Net Model (PART D)
 - Train U-Net:
-  ```bash
-  python train_unet.py
-  ```
+  - Python script:
+    ```bash
+    python train_unet.py
+    ```
+  - Jupyter Notebook:
+    ```bash
+    jupyter notebook train_unet.ipynb
+    ```
 
-### 6. Inference Web Apps
-- Visit:
-  - [CNN Classification Web App](https://your-cnn-webapp-link.com)
-  - [U-Net Segmentation Web App](https://your-unet-webapp-link.com)
-
----
 
 ## 📁 Project Structure
 
@@ -168,16 +249,9 @@ This project focuses on detecting and segmenting face masks in images. The prima
 
 ---
 
-## 🔗 References
-
-- [Kaggle Dataset](https://www.kaggle.com/datasets/andrewmvd/face-mask-detection)
-- [U-Net Paper](https://arxiv.org/abs/1505.04597)
-- [TensorFlow Documentation](https://www.tensorflow.org/)
-
----
 
 ## 🎓 Team Members
-- **Your Name** (Roll No.)
-- [LinkedIn](https://linkedin.com/in/yourprofile) | [GitHub](https://github.com/yourprofile)
 
-
+- **Rutul Patel** (IMT2022021) - [GitHub](https://github.com/rutulpatel)
+- **Aryaman Pathak** (IMT2022513) - [GitHub](https://github.com/aryamanpathak2022)
+- **Shreyas Biradar** (IMT202251X) - [GitHub](https://github.com/BiradarScripts)
