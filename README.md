@@ -65,11 +65,7 @@ Note - We only uploaded the classification dataset to github repo and not segmen
 - **Method1**:
   - Applied both Thresholding and edge detection techniques,used Dataset.csv as Ground truth values
 - **Method2**:
-  - Applied Canny,gmm,kmeans and otsu detection techniques,used face_crop_segmentation as Ground truth values
-      - canny technique produces accuracy
-      - gmm technique produces accuracy
-      - kmeans technique produces accuracy
-      - otsu technique produces accuracy
+  - Applied both Thresholding and edge detection techniques,used Dataset.csv as Ground truth values
 
 ### d. Mask Segmentation Using U-Net
 
@@ -256,16 +252,9 @@ Note - We only uploaded the classification dataset to github repo and not segmen
 │   │   ├── Preprocess.py/        # Script for making same file names 
 │   │   ├── result.py/            # Genrate the output and accuracy
 │   ├── METHOD 2/                 # This method uses face_crop_segmentation as ground truth values
-│   │   ├── output/               # Images of people without masks
-|   |   |   |── gmm_results/      # The output images and the  accuracy of gmm
-|   |   |   |── kmeans_results/   # The output images and the  accuracy of kmeans
-|   |   |   |── canny_results/    # The output images and the  accuracy of canny
-|   |   |   |── otsu_results/     # The output images and the  accuracy of otsu
-│   │   ├── canny.py/            # Images of people wearing masks
-│   │   ├── gmm.py/              # Images of people without masks
-│   │   ├── k_means.py/          # Images of people wearing masks
-│   │   ├── gmm.py/              # Images of people without masks
-│   │   ├── otsu.py/             # Images of people wearing masks
+│   │   ├── segmented_output/     # The output images aswell the accuracy 
+│   │   ├── Preprocess.py/        # Script for making same file names 
+│   │   ├── result.py/            # Genrate the output and accuracy
 ```
 
 ---
