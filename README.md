@@ -159,9 +159,9 @@ Note - We only uploaded the classification dataset to github repo and not segmen
 
 | Task                                | Model           | Accuracy (%) | IoU Score | Dice Score |
 |-------------------------------------|-----------------|--------------|-----------|------------|
-| Binary Classification (ML)         | SVM             | 91.2         | -         | -          |
-|                                     | MLP             | 93.5         | -         | -          |
-| Binary Classification (CNN)        | CNN             | **97.8**     | -         | -          |
+| Binary Classification (ML)         | SVM             | 88.6         | -         | -          |
+|                                     | MLP             | 92.6         | -         | -          |
+| Binary Classification (CNN)        | CNN             | **97.1**     | -         | -          |
 | Region Segmentation (Traditional Method1)  | Edge Detection  | -            | 0.09      | 0.16       |
 | Region Segmentation (Traditional Method2)  | Edge Detection  | -            | 0.10      | 0.18       |
 | Region Segmentation (Traditional Method1)  | Thresholding  | -            | 0.83      | 0.89       |
