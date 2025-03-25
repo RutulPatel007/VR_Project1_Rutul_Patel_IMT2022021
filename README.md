@@ -239,6 +239,7 @@ Note - We only uploaded the classification dataset to github repo and not segmen
 ```
 ├── PartA&B                       # Classifications code
 |   |── Classification.ipynb      # Contains code for both Handcrafted and CNN classification
+|   |── Classification.py         # .py version 
 ├── requirements.txt              # Dependencies
 ├── README.md                     # Project report
 ├── data/
