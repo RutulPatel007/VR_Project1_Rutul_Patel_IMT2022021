@@ -214,10 +214,12 @@ Note - We only uploaded the classification dataset to github repo and not segmen
 - Run using:
   - Python script:
     ```bash
+    cd PartA&B
     python Classification.py
     ```
   - Jupyter Notebook (Colab preferred):
     ```bash
+    cd PartA&B
     jupyter notebook Classification.ipynb
     ```
 
