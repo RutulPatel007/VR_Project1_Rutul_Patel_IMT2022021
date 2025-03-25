@@ -76,7 +76,7 @@ Note - We only uploaded the classification dataset to github repo and not segmen
 - **Model Architecture**:
   - Encoder-decoder with skip connections.
   - Convolution layers followed by BatchNorm and Dropout.
-- **Input Size**: 256x256
+- **Input Size**: 128x128
 - **Loss Function**: Binary Crossentropy + Dice Loss
 - **Optimizer**: Adam
 - **Hyperparameters**:
@@ -261,6 +261,7 @@ Note - We only uploaded the classification dataset to github repo and not segmen
 │   │   ├── segmented_output/     # The output images aswell the accuracy 
 │   │   ├── Preprocess.py/        # Script for making same file names 
 │   │   ├── result.py/            # Genrate the output and accuracy
+├── PART D/                       # U-NET Codes
 ```
 
 ---
