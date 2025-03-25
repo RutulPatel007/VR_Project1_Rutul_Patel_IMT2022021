@@ -81,8 +81,8 @@ Note - We only uploaded the classification dataset to github repo and not segmen
 - **Optimizer**: Adam
 - **Hyperparameters**:
   - Dropout Rate: 0.3
-  - Batch Size: 16
-  - Epochs: 30
+  - Batch Size: 32
+  - Epochs: 50
 - **Data Preprocessing**:
   - Resized images and masks, normalized pixel values to [0, 1].
 
