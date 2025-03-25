@@ -244,10 +244,12 @@ Note - We only uploaded the classification dataset to github repo and not segmen
 - Train U-Net:
   - Python script:
     ```bash
+    cd PartD
     python U-net.py
     ```
   - Jupyter Notebook:
     ```bash
+    cd PartD
     jupyter notebook U-Net.ipynb
     ```
 
