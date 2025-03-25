@@ -159,11 +159,15 @@ Note - We only uploaded the classification dataset to github repo and not segmen
 
 | Task                                | Model           | Accuracy (%) | IoU Score | Dice Score |
 |-------------------------------------|-----------------|--------------|-----------|------------|
-| Binary Classification (ML)         | SVM             | 88.6         | -         | -          |
-|                                     | MLP             | 92.6        | -         | -          |
-| Binary Classification (CNN)        | CNN             | **97.1**     | -         | -          |
-| Region Segmentation (Traditional)  | Edge Detection  | -            | 0.58      | 0.69       |
+| Binary Classification (ML)         | SVM             | 91.2         | -         | -          |
+|                                     | MLP             | 93.5         | -         | -          |
+| Binary Classification (CNN)        | CNN             | **97.8**     | -         | -          |
+| Region Segmentation (Traditional Method1)  | Edge Detection  | -            | 0.09      | 0.16       |
+| Region Segmentation (Traditional Method2)  | Edge Detection  | -            | 0.10      | 0.18       |
+| Region Segmentation (Traditional Method1)  | Thresholding  | -            | 0.83      | 0.89       |
+| Region Segmentation (Traditional Method2)  | Thresholding  | -            | 0.29      | 0.42       |
 | Mask Segmentation (Deep Learning)  | U-Net           | -            | **0.91**  | **0.94**   |
+
 
 - **CNN vs ML Classifiers**: CNN outperformed traditional classifiers with significant margin. Also MLP outperformed SVM 
 - **U-Net vs Traditional Segmentation**: U-Net produced much finer and accurate segmentation.
