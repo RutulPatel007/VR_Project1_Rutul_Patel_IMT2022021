@@ -28,7 +28,9 @@ This project focuses on detecting and segmenting face masks in images. The prima
     - Image sizes varied, standardized to 64x64.
     - Dataset was divided into 80:20 for training and testing
   - **Segmentation**:
-    - Two folders: `crop_face` containing cropped face images and `segmented_mask` containing corresponding segmentation masks.
+    - Two folders: `face_crop` containing cropped face images and `face_crop_segmentation` containing corresponding segmentation masks.
+    - face_crop/: Contains cropped face images.
+    - face_crop_segmentation/: Contains the segmented masks of cropped face images.
     - Image sizes standardized to 256x256.
 
 Note - We only uploaded the classification dataset to github repo and not segmentation dataset since it was very large and we used gdown library in colab to download
@@ -196,6 +198,7 @@ Note - We only uploaded the classification dataset to github repo and not segmen
 - Running in Google Colab is preferred for Jupyter Notebook execution.
 - Clone the repo and go to the root folder of repo
 - Download the MSFD Dataset in the root directory.
+- change the dataset locations accordingly in the code, we used colab so uploaded in drive for classification
 
 ### 1. Environment Setup
 - Python 3.8+
@@ -249,14 +252,6 @@ Note - We only uploaded the classification dataset to github repo and not segmen
 │   ├── Face_Mask_Detection/      # Dataset folder for classification
 │   │   ├── with_mask/            # Images of people wearing masks
 │   │   ├── without_mask/         # Images of people without masks
-├── MSFD/
-│   ├── 1/      
-│   │   ├── dataset.csv/                  # The groundtruth values used in Method1
-│   │   ├── img/                          # The original images
-│   │   ├── face_crop/                    # The cropped images of original images
-│   │   ├── face_crop_segmentation/       # The segmented output of cropped images
-│   ├── 2/                                # The groundtruth values used in Method2
-│   │   ├── img/                          #sample images
 ├── PART C/
 │   ├── METHOD 1/                 # This method uses Dataset.csv as ground truth values
 │   │   ├── segmented_output/     # The output images aswell the accuracy 
