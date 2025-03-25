@@ -4,6 +4,7 @@
 - **Binary Classification (CNN Model)**: [CNN Classification Web App](https://huggingface.co/spaces/aryamanpathak/FACE_MASK_DETECTOR)
 - **Mask Segmentation (U-Net Model)**: [U-Net Segmentation Web App](https://huggingface.co/spaces/aryamanpathak/Mask_Segmentation)
 
+Note  -  Restart the space if it's in sleep mode since we used free tier of hugging face space and it goes to sleep because of inactivity
 ---
 
 ## 📌 Introduction
