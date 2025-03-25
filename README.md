@@ -210,14 +210,15 @@ Note - We only uploaded the classification dataset to github repo and not segmen
 ### 2. Steps to Run
 #### (a) Handcrafted Features + CNN Model (Part A & B)
 - This step includes both feature extraction, ML classifiers, and CNN model training.
+- Mode to PartA&B folder
 - Run using:
   - Python script:
     ```bash
-    python classify_ml.py
+    python Classification.py
     ```
   - Jupyter Notebook (Colab preferred):
     ```bash
-    jupyter notebook classify_ml.ipynb
+    jupyter notebook Classification.ipynb
     ```
 
 #### (b) Traditional Segmentation (PART C)
