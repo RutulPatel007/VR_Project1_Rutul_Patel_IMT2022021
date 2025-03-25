@@ -5,3 +5,5 @@ matplotlib
 scikit-learn
 keras
 gdown
+cv2
+pandas
