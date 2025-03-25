@@ -246,6 +246,14 @@ Note - We only uploaded the classification dataset to github repo and not segmen
 │   ├── Face_Mask_Detection/      # Dataset folder for classification
 │   │   ├── with_mask/            # Images of people wearing masks
 │   │   ├── without_mask/         # Images of people without masks
+├── MSFD/
+│   ├── 1/      
+│   │   ├── dataset.csv/                  # The groundtruth values used in Method1
+│   │   ├── img/                          # The original images
+│   │   ├── face_crop/                    # The cropped images of original images
+│   │   ├── face_crop_segmentation/       # The segmented output of cropped images
+│   ├── 2/                                # The groundtruth values used in Method2
+│   │   ├── img/                          #sample images
 ├── PART C/
 │   ├── METHOD 1/                 # This method uses Dataset.csv as ground truth values
 │   │   ├── segmented_output/     # The output images aswell the accuracy 
