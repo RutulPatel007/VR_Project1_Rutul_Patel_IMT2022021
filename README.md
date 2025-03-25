@@ -132,15 +132,15 @@ Note - We only uploaded the classification dataset to github repo and not segmen
 
 | Experiment | Learning Rate | Batch Size | Dropout Rate | IoU Score | Dice Score |
 |------------|--------------|------------|--------------|-----------|------------|
-| Baseline   | 0.001        | 16         | 0.3          | 0.91      | 0.94       |
-| Exp 1      | 0.0001       | 16         | 0.3          | 0.87      | 0.90       |
+| Baseline   | 0.001        | 32         | 0.3          | 0.94      | 0.97       |
+| Exp 1      | 0.0001       | 64         | 0.3          | 0.87      | 0.90       |
 | Exp 2      | 0.001        | 32         | 0.3          | 0.89      | 0.92       |
-| Exp 3      | 0.001        | 16         | 0.5          | 0.88      | 0.91       |
-| Exp 4      | 0.0005       | 16         | 0.3          | 0.90      | 0.93       |
+| Exp 3      | 0.001        | 64         | 0.5          | 0.88      | 0.91       |
+| Exp 4      | 0.0005       | 64         | 0.3          | 0.90      | 0.93       |
 
 - **Observations:**
   - The optimal learning rate was found to be `0.001`, with `0.0001` leading to slower convergence.
-  - Increasing batch size to 32 led to a minor decrease in IoU and Dice scores, indicating smaller batch sizes are preferable.
+  - Increasing batch size to 64 led to a minor decrease in IoU and Dice scores, indicating smaller batch sizes are preferable.
   - Higher dropout (`0.5`) reduced performance slightly, suggesting `0.3` is a good balance for regularization.
   - The Adam optimizer at `0.001` worked best, similar to the CNN classification experiments.
 
@@ -148,7 +148,7 @@ Note - We only uploaded the classification dataset to github repo and not segmen
 
 ### 📌 Final Takeaways
 - **For CNN**, Adam optimizer with `0.001` learning rate and batch size `32` provided the highest accuracy.
-- **For U-Net**, `0.001` learning rate, batch size `16`, and dropout rate `0.3` yielded the best segmentation results.
+- **For U-Net**, `0.001` learning rate, batch size `32`, and dropout rate `0.3` yielded the best segmentation results.
 
 
 
@@ -166,7 +166,7 @@ Note - We only uploaded the classification dataset to github repo and not segmen
 | Region Segmentation (Traditional Method2)  | Edge Detection  | -            | 0.10      | 0.18       |
 | Region Segmentation (Traditional Method1)  | Thresholding  | -            | 0.83      | 0.89       |
 | Region Segmentation (Traditional Method2)  | Thresholding  | -            | 0.29      | 0.42       |
-| Mask Segmentation (Deep Learning)  | U-Net           | -            | **0.91**  | **0.94**   |
+| Mask Segmentation (Deep Learning)  | U-Net           | -            | **0.94**  | **0.97**   |
 
 
 - **CNN vs ML Classifiers**: CNN outperformed traditional classifiers with significant margin. Also MLP outperformed SVM 
