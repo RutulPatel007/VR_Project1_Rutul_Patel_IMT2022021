@@ -272,4 +272,4 @@ This project focuses on detecting and segmenting face masks in images. The prima
 
 - **Rutul Patel** (IMT2022021) - [GitHub](https://github.com/rutulpatel)
 - **Aryaman Pathak** (IMT2022513) - [GitHub](https://github.com/aryamanpathak2022)
-- **Shreyas Biradar** (IMT202251X) - [GitHub](https://github.com/BiradarScripts)
+- **Shreyas Biradar** (IMT2022529) - [GitHub](https://github.com/BiradarScripts)
