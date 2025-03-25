@@ -24,11 +24,12 @@ This project focuses on detecting and segmenting face masks in images. The prima
   - **Image Classification**:
     - Two categories: `with_mask` and `without_mask`, organized into separate folders.
     - Image sizes varied, standardized to 64x64.
-    - Dataset was divided into 70:30 for training and testing
+    - Dataset was divided into 80:20 for training and testing
   - **Segmentation**:
     - Two folders: `crop_face` containing cropped face images and `segmented_mask` containing corresponding segmentation masks.
     - Image sizes standardized to 256x256.
 
+Note - We only uploaded the classification dataset to github repo and not segmentation dataset since it was very large and we used gdown library in colab to download
 
 
 ## 🧠 Methodology
@@ -49,15 +50,15 @@ This project focuses on detecting and segmenting face masks in images. The prima
 
 - **Model Architecture**:
   - Conv2D → MaxPooling → Conv2D → MaxPooling → Flatten → Dense → Output.
+- **Data Preprocessing**:
+  - Image Normalization: Scaled pixel values to the range [0, 1] by dividing by 255.
 - **Data Augmentation**:
   - Applied rotation, zoom, shift, and horizontal flip using `ImageDataGenerator`.
-- **Hyperparameters**:
+- **Hyperparameters (Giving best results)**:
   - Optimizer: Adam
   - Learning Rate: 0.001
   - Batch Size: 32
   - Epochs: 50
-- **Experiments**:
-  - Tried different learning rates and optimizers (Adam, SGD), varied batch size (16, 32, 64).
 
 ### c. Region Segmentation Using Traditional Techniques
 
@@ -102,11 +103,11 @@ This project focuses on detecting and segmenting face masks in images. The prima
 
 | Experiment | Learning Rate | Optimizer | Batch Size | Accuracy (%) |
 |------------|--------------|-----------|------------|--------------|
-| Baseline   | 0.001        | Adam      | 32         | 97.8         |
+| Baseline   | 0.001        | Adam      | 32         | 97.1         |
 | Exp 1      | 0.0001       | Adam      | 32         | 96.2         |
 | Exp 2      | 0.001        | SGD       | 32         | 94.5         |
 | Exp 3      | 0.001        | Adam      | 64         | 96.8         |
-| Exp 4      | 0.0005       | RMSprop   | 32         | 97.1         |
+| Exp 4      | 0.0005       | RMSprop   | 32         | 96.9         |
 
 - **Observations:**
   - Adam optimizer with a learning rate of `0.001` performed the best.
@@ -148,24 +149,23 @@ This project focuses on detecting and segmenting face masks in images. The prima
 ### 📌 Final Takeaways
 - **For CNN**, Adam optimizer with `0.001` learning rate and batch size `32` provided the highest accuracy.
 - **For U-Net**, `0.001` learning rate, batch size `16`, and dropout rate `0.3` yielded the best segmentation results.
-- Proper regularization (dropout, batch size tuning) played a key role in preventing overfitting.
-- Hyperparameter tuning significantly improved both classification and segmentation results.
+
 
 
 
 ## 📊 Results
 
-- Note: For classification, data was divided into 70-30 for testing and training.
+- Note: For classification, data was divided into 80-20 for testing and training.
 
 | Task                                | Model           | Accuracy (%) | IoU Score | Dice Score |
 |-------------------------------------|-----------------|--------------|-----------|------------|
-| Binary Classification (ML)         | SVM             | 91.2         | -         | -          |
-|                                     | MLP             | 93.5         | -         | -          |
-| Binary Classification (CNN)        | CNN             | **97.8**     | -         | -          |
+| Binary Classification (ML)         | SVM             | 88.6         | -         | -          |
+|                                     | MLP             | 92.6        | -         | -          |
+| Binary Classification (CNN)        | CNN             | **97.1**     | -         | -          |
 | Region Segmentation (Traditional)  | Edge Detection  | -            | 0.58      | 0.69       |
 | Mask Segmentation (Deep Learning)  | U-Net           | -            | **0.91**  | **0.94**   |
 
-- **CNN vs ML Classifiers**: CNN outperformed traditional classifiers with significant margin.
+- **CNN vs ML Classifiers**: CNN outperformed traditional classifiers with significant margin. Also MLP outperformed SVM 
 - **U-Net vs Traditional Segmentation**: U-Net produced much finer and accurate segmentation.
 
 ---
@@ -192,6 +192,7 @@ This project focuses on detecting and segmenting face masks in images. The prima
 - The project was originally developed using Jupyter Notebook (`.ipynb`) files, except for the C part which was done in .py.
 - Both `.py` and `.ipynb` versions of the files are available.
 - Running in Google Colab is preferred for Jupyter Notebook execution.
+- Clone the repo and go to the root folder of repo
 
 ### 1. Environment Setup
 - Python 3.8+
@@ -236,17 +237,14 @@ This project focuses on detecting and segmenting face masks in images. The prima
 ## 📁 Project Structure
 
 ```
-├── classify_ml.py                # Handcrafted features & ML classifiers
-├── train_cnn.py                  # CNN classification
-├── traditional_segmentation.py   # Traditional region segmentation
-├── train_unet.py                 # U-Net segmentation training
+├── PartA&B                       # Classifications code
+|   |── Classification.ipynb      # Contains code for both Handcrafted and CNN classification
 ├── requirements.txt              # Dependencies
 ├── README.md                     # Project report
 ├── data/
-│   ├── Face_Mask_Detection/      # Dataset folder
+│   ├── Face_Mask_Detection/      # Dataset folder for classification
 │   │   ├── with_mask/            # Images of people wearing masks
 │   │   ├── without_mask/         # Images of people without masks
-│   ├── masks/                    # Segmentation masks (if applicable)
 ├── PART C/
 │   ├── METHOD 1/                 # This method uses Dataset.csv as ground truth values
 │   │   ├── segmented_output/     # The output images aswell the accuracy 
