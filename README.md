@@ -69,7 +69,7 @@ Note - We only uploaded the classification dataset to github repo and not segmen
 - **Method1**:
   - Applied both Thresholding and edge detection techniques,used Dataset.csv as Ground truth values
 - **Method2**:
-  - Applied both Thresholding and edge detection techniques,used Dataset.csv as Ground truth values
+  - Applied both Thresholding and edge detection techniques,used face_crop_segmentation as Ground truth values
 
 ### d. Mask Segmentation Using U-Net
 
